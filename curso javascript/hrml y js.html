@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Para hacer cambios en el arbol DOM</title>
+</head>
+
+<body>
+    <h1 id="Titulo">Hola Mundo!</h1>
+
+    <script>
+     var elementoTitulo = document.getElementById("Titulo");
+     console.log(elementoTitulo.innerHTML);
+     var nuevoTexto = prompt("Ingrese un titulo nuevo:");
+     elementoTitulo.innerHTML = nuevoTexto;
+      </script>
+  </body>
+  </html>

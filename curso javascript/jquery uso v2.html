@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <title>Para seguir con el DOM</title>
+  </head>
+
+  <body>
+      <h1 id="Titulo">Hola Mundo nuevamente!</h1>
+	  <h1> " es otro titulo " </h1>
+     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+      <script>
+      var nuevo = prompt("Escriba un nuevo titulo:");
+     $("#Titulo").text(nuevo);
+	// $("h1").fadeOut(1500); // fadeOut(tiempo) hace desaparecer los testos h1 por x cantidad de tiempo (milisegundos)
+	// $("h1").fadeIn(3000); // fadeIn(tiempo) hace aparecer los testos h1 por x cantidad de tiempo (milisegundos)
+	 $("#Titulo").fadeOut(1500); // si quiero que solo se aplique al titulo uso su ID (Titulo) precedido de #
+	 $("#Titulo").fadeIn(3000); 
+	 
+      </script>
+  </body>
+  </html>
+

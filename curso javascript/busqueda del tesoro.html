@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>busqueda del tesoro</title>
+</head>
+
+<body>
+	<h1 id="titulo">Encuentre el tesoro escondido!!!</h1>
+    
+<img id="mapa" ancho=400 alto=400 src="https://image.freepik.com/vector-gratis/mapa-pirata-busqueda-tesoro_23-2147638683.jpg">
+
+	<p id="distancia"></p>
+	<script src="htp://code.jquery.com/jquery-2.1.0.js"></script>
+	<script >
+		var numeroAzar = function (valor) {
+			return Math.floor(Math.random()*valor);
+		};
+		var traeDistancia = function (evento, tesoro){
+			var diffX = event.offsetX - tesoro.x;
+			var diffY = event.offsetY - tesoro.y;
+			return Math.sqrt((diffX*diffX)+(diffY*diffY));
+		};
+		var traeAyuda = function (distancia) {
+		if (distancia < 18) {
+		    return "Quemando!";
+
+		    } else if (distancia < 20) {
+		      return "Muy caliente";
+		    } else if (distancia < 40) {
+		      return "Caliente";
+		    } else if (distancia < 80) {
+		      return "Tibio";
+		    } else if (distancia < 160) {
+		      return "Frio";
+		    } else if (distancia < 320) {
+		      return "Muy frio";
+		    } else {
+		      return "Cogelado!";
+		    }
+		};
+		// Crea variables
+			 var ancho = 400;
+			  var alto = 400;
+			  var clicks = 0;
+
+			  // Crea la ubicación del tesoro
+			 var tesoro = {
+			    x: numeroAzar(ancho),
+			    y: numeroAzar(alto)
+			  };
+
+			  // Agrega el menejo de clicks
+			 $("#mapa").click(function (event) {
+			    clicks++;
+
+			    // Calcula distancia entre el click y el tesoro
+			   var distancia = traedistancia(event, tesoro);
+			    // Convierte la distancia en ayuda
+			   var ayuda = traeAyuda(distancia);
+
+			    // Actualizar el elemento #distancia
+			   $("#distancia").text(ayuda);
+
+			    // Si está muy cerca dile que ganó, encontró el tesoro!
+			   if (distancia < 15) {
+			      alert("Encontraste el tesoro en " + clicks + " clicks!");
+			    }
+			  });
+	</script>
+  </body>
+  </html>
